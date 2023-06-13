@@ -33,33 +33,44 @@ Troco es un proyecto de portal especializado en intercambio de artículos retro 
 
 
 # 🚀 PROCESO DE CREACIÓN 🚀
+## 🚀 ¿Cómo se ha desarrollado Troco? 
+```1 - Registro```
 
-1. Registro
-   [![Registro](https://i.postimg.cc/1tHg2gGb/1-registration.jpg)](https://www.youtube.com/watch?v=XnPB8X8v6IQ)
+[![Alt text](https://i.postimg.cc/WpZcrjdr/1-registration.png)](https://www.youtube.com/watch?v=XnPB8X8v6IQ)  
 
-2. Login
-   [![Login](https://i.postimg.cc/3RnR9s7T/2-login.jpg)](https://www.youtube.com/watch?v=jPrTfIVhIuQ)
+```2 - Login```
 
-3. Crear un Item
-   [![Crear un Item](https://i.postimg.cc/7LXwySR1/4-create-deal.jpg)](https://www.youtube.com/watch?v=pcg5gDU9Oug)
+[![Alt text](https://i.postimg.cc/2SThksmL/2-login.png)](https://www.youtube.com/watch?v=jPrTfIVhIuQ)
 
-4. Crear un Deal
-   [![Crear un Deal](https://i.postimg.cc/7LXwySR1/4-create-deal.jpg)](https://www.youtube.com/watch?v=pcg5gDU9Oug)
+```3 - Crear un Item```
 
-5. Aceptación de un Deal
-   [![Aceptación de un Deal](https://i.postimg.cc/Xv2qgMn0/5-deal-acceptance.jpg)](https://www.youtube.com/watch?v=W49QuWSMFfc)
+[![Alt text](https://i.postimg.cc/6qv6Sv6f/3-create-item.png)](https://www.youtube.com/watch?v=pcg5gDU9Oug)
 
-6. Deal Rating
-   [![Deal Rating](https://i.postimg.cc/XJ12DsQt/6-deal-rating.png)](https://www.youtube.com/watch?v=eB2mRwbeIcY)
 
-7. Deal Rechazado
-   [![Deal Rechazado](https://i.postimg.cc/zfM5BqJ3/7-deal-rejected.jpg)](https://www.youtube.com/zB26OrIx2bw)
+```4 - Crear un Deal```
 
-8. Buscador de Items
-   [![Buscador de Items](https://i.postimg.cc/wxDHqKnT/8-searcher.jpg)](https://www.youtube.com/sxik_c02RZk)
+[![Alt text](https://i.postimg.cc/mkKkgGgR/4-create-deal.png)](https://www.youtube.com/watch?v=pcg5gDU9Oug)
 
-9. Wishlist
-   [![Wishlist](https://i.postimg.cc/pL63Qk36/9-wishlist.jpg)](https://www.youtube.com/A9MFBNk0Vh8)
+```5 - Aceptación de un Deal```
+
+[![Alt text](https://i.postimg.cc/5tjRJcTn/5-deal-acceptance.png)](https://www.youtube.com/watch?v=W49QuWSMFfc)
+
+```6 - Deal Rating```
+
+[![Alt text](https://i.postimg.cc/XJ12DsQt/6-deal-rating.png)](https://www.youtube.com/watch?v=eB2mRwbeIcY)
+
+```7 - Deal Rechazado```
+
+[![Alt text](https://i.postimg.cc/9QCc2Bdr/7-deal-rejected.png)](https://www.youtube.com/zB26OrIx2bw)
+
+```8 - Buscador de Items```
+
+[![Alt text](https://i.postimg.cc/KjtySK4P/8-searcher.png)](https://www.youtube.com/sxik_c02RZk)
+
+```9 - Wishlist```
+
+[![Alt text](https://i.postimg.cc/3RDsmyXs/9-wishlist.png)](https://www.youtube.com/A9MFBNk0Vh8)
+
 
 
 #
