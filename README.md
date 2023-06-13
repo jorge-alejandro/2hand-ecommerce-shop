@@ -104,18 +104,3 @@ Troco es un proyecto de portal especializado en intercambio de artículos retro 
 
 
 
-
-
-
-
-
-
-# 2hand-ecommerce-shop
-
-NPM Packaes Installed
-
-express
-mysql2
-joi
-cors
-dotenv
