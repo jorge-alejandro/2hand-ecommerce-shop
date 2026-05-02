@@ -23,12 +23,10 @@
     "mailjet-rest": "^3.4.1",
     "sharp": "^0.32.1"
   },
- "devDependencies": {
+"devDependencies": {
     "nodemon": "^2.0.22"
   },
   "engines": {
-    "engines": {
-  "node": "18.x"
-}
+    "node": "18.x"
   }
 }
