@@ -10,15 +10,6 @@ const PORT = 8080;
 app.listen(PORT, () => {
   console.log("Server iniciado en el puerto " + PORT);
 });
-app.use(
-  cors({
-    origin: [
-      "https://troco.pro",
-      "http://localhost:8080",
-      "http://localhost:5173",
-    ],
-  })
-);
 
 app.get("/init-db", async (req, res) => {
   try {
@@ -31,6 +22,15 @@ app.get("/init-db", async (req, res) => {
   }
 });
 
+app.use(
+  cors({
+    origin: [
+      "https://troco.pro",
+      "http://localhost:8080",
+      "http://localhost:5173",
+    ],
+  })
+);
 app.use(validateToken);
 app.use(indexRouter);
 const staticDirectory = path.join(__dirname, "../public");
