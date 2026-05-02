@@ -1,28 +1,22 @@
 require("dotenv").config();
-const mailjet = require("node-mailjet").apiConnect(
-  process.env.MJ_APIKEY_PUBLIC,
-  process.env.MJ_APIKEY_PRIVATE
-);
+const nodemailer = require("nodemailer");
+
+const transporter = nodemailer.createTransport({
+  host: "in-v3.mailjet.com",
+  port: 587,
+  auth: {
+    user: process.env.MJ_APIKEY_PUBLIC,
+    pass: process.env.MJ_APIKEY_PRIVATE,
+  },
+});
 
 module.exports = {
   async sendEmail(to, toName, subject, message) {
-    await mailjet.post("send", { version: "v3.1" }).request({
-      Messages: [
-        {
-          From: {
-            Email: process.env.MAIL_SENDER_FROM,
-            Name: process.env.MAIL_SENDER_NAME,
-          },
-          To: [
-            {
-              Email: to,
-              Name: toName,
-            },
-          ],
-          Subject: subject,
-          HTMLPart: message,
-        },
-      ],
+    await transporter.sendMail({
+      from: `"${process.env.MAIL_SENDER_NAME}" <${process.env.MAIL_SENDER_FROM}>`,
+      to: `"${toName}" <${to}>`,
+      subject,
+      html: message,
     });
   },
 
@@ -58,11 +52,10 @@ module.exports = {
                 <tr>
                   <td style="padding: 10px 40px 30px;">
                     <p style="font-family: 'Poppins', 'HelveticaNeue', Helvetica, Arial, sans-serif; font-weight: 400; font-size: 18px; line-height: 1.6em; letter-spacing: -0.1px; margin: 0; text-align: left; color: #000;">
-                    Dear ${user.username}, you’re just a few steps to become a Trocolo 🐻' and join the community of Trocolers! Follow these simple steps to complete the process:
+                    Dear ${user.username}, you're just a few steps to become a Trocolo 🐻' and join the community of Trocolers! Follow these simple steps to complete the process:
                     </p>
                   </td>
                 </tr>
-                <!-- Code validation section -->
                 <tr>
                   <td style="padding: 10px 40px;">
                     <table style="width: 100%; border-collapse: collapse;" cellpadding="0" cellspacing="0">
@@ -83,7 +76,6 @@ module.exports = {
                     </table>
                   </td>
                 </tr>
-                <!-- Log in section -->
                 <tr>
                   <td style="padding: 10px 40px;">
                     <table style="width: 100%; border-collapse: collapse;" cellpadding="0" cellspacing="0">
@@ -104,7 +96,6 @@ module.exports = {
                     </table>
                   </td>
                 </tr>
-                <!-- Complete profile section -->
                 <tr>
                   <td style="padding: 10px 40px;">
                     <table style="width: 100%; border-collapse: collapse;" cellpadding="0" cellspacing="0">
@@ -125,7 +116,6 @@ module.exports = {
                     </table>
                   </td>
                 </tr>
-                <!-- Login button -->
                 <tr>
                   <td style="padding: 50px 0 0px;">
                     <a href="http://localhost:5173/" target="_blank" class="button" style="font-family: 'Poppins', 'HelveticaNeue', Helvetica, Arial, sans-serif; border-radius: 40px; display: inline-block; font-size: 18px; font-weight: 600; text-decoration: none; vertical-align: middle; line-height: 50px; text-size-adjust: none; text-align: center; width: 500px; border: 1px solid #e28210; background-color: #e28210; color: white;">
@@ -133,7 +123,6 @@ module.exports = {
                     </a>
                   </td>
                 </tr>
-                <!-- Exchange Guide section -->
                 <tr>
                   <td style="padding: 50px 40px 20px;">
                     <table style="width: 100%; border-collapse: collapse; background-color: antiquewhite; border-radius: 15px;" cellpadding="0" cellspacing="0">
@@ -150,7 +139,6 @@ module.exports = {
                     </table>
                   </td>
                 </tr>
-                <!-- Footer section -->
               </tbody>
             </table>
           </div>
@@ -172,12 +160,7 @@ module.exports = {
     );
   },
 
-  async sendOfferEmail(
-    sellerUser,
-    buyerUser,
-    requestedItemsDetails,
-    offeredItemsDetails
-  ) {
+  async sendOfferEmail(sellerUser, buyerUser, requestedItemsDetails, offeredItemsDetails) {
     await this.sendEmail(
       sellerUser.email,
       sellerUser.name,
@@ -206,7 +189,6 @@ module.exports = {
                     </a>
                   </td>
                 </tr>
-                <!-- Offer section -->
                 <tr>
                   <td style="padding: 10px 40px 30px;">
                     <p style="font-family: 'Poppins', 'HelveticaNeue', Helvetica, Arial, sans-serif; font-weight: 400; font-size: 18px; line-height: 1.6em; letter-spacing: -0.1px; margin: 0; text-align: left; color: #000;">
@@ -221,7 +203,6 @@ module.exports = {
                       </p>
                     </td>
                   </tr>
-                <!-- Login button -->
                 <tr>
                   <td style="padding: 20px 0 0px;">
                     <a href="http://localhost:5173/" target="_blank" class="button" style="font-family: 'Poppins', 'HelveticaNeue', Helvetica, Arial, sans-serif; border-radius: 40px; display: inline-block; font-size: 18px; font-weight: 600; text-decoration: none; vertical-align: middle; line-height: 50px; text-size-adjust: none; text-align: center; width: 500px; border: 1px solid #e28210; background-color: #e28210; color: white;">
@@ -229,7 +210,6 @@ module.exports = {
                     </a>
                   </td>
                 </tr>
-                <!-- Exchange Guide section -->
                 <tr>
                   <td style="padding: 50px 40px 20px;">
                     <table style="width: 100%; border-collapse: collapse; background-color: antiquewhite; border-radius: 15px;" cellpadding="0" cellspacing="0">
@@ -246,7 +226,6 @@ module.exports = {
                     </table>
                   </td>
                 </tr>
-                <!-- Footer section -->
               </tbody>
             </table>
           </div>
@@ -311,7 +290,6 @@ module.exports = {
                                   </a>
                               </td>
                           </tr>
-                          <!-- Rejection section -->
                           <tr>
                               <td style="padding: 10px 40px 20px;">
                                   <table
@@ -334,7 +312,6 @@ module.exports = {
                                   </table>
                               </td>
                           </tr>
-  
                           <tr>
                               <td style="padding: 30px 40px 10px;">
                                   <p
@@ -343,7 +320,6 @@ module.exports = {
                                   </p>
                               </td>
                           </tr>
-                          <!-- Go to TROCO button -->
                           <tr>
                               <td style="padding: 10px 0 20px;">
                                   <a href="http://localhost:5173/" target="_blank" class="button"
@@ -352,7 +328,6 @@ module.exports = {
                                   </a>
                               </td>
                           </tr>
-                          <!-- Footer section -->
                       </tbody>
                   </table>
               </div>
@@ -433,7 +408,6 @@ module.exports = {
                                   </p>
                               </td>
                           </tr>
-                          <!-- Conditions section -->
                           <tr>
                               <td style="padding: 10px 40px 50px;">
                                   <table
@@ -463,7 +437,6 @@ module.exports = {
                                   </p>
                               </td>
                           </tr>
-                          <!-- Footer section -->
                       </tbody>
                   </table>
               </div>
@@ -534,7 +507,6 @@ module.exports = {
                                   </a>
                               </td>
                           </tr>
-                          <!-- Feedback section -->
                           <tr>
                               <td style="padding: 10px 40px 50px;">
                                   <table
@@ -561,7 +533,6 @@ module.exports = {
                                   </table>
                               </td>
                           </tr>
-                          <!-- Go to TROCO button -->
                           <tr>
                               <td style="padding: 10px 0 20px;">
                                   <a href="http://localhost:5173/" target="_blank" class="button"
@@ -570,7 +541,6 @@ module.exports = {
                                   </a>
                               </td>
                           </tr>
-                          <!-- Footer section -->
                       </tbody>
                   </table>
               </div>
