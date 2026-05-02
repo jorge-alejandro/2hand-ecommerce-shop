@@ -23,7 +23,10 @@
     "node-mailjet": "^6.0.2",
     "sharp": "^0.32.1"
   },
-  "devDependencies": {
+ "devDependencies": {
     "nodemon": "^2.0.22"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
